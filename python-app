@@ -1,0 +1,96 @@
+# variables 
+agencies = ['moghamo', 'guarantee','buca']
+sources = ['dla', 'yde', 'bda']
+destinations = ['bda', 'dla', 'yde']
+travel_times = ['day', 'night']
+
+# For agencies to fill out
+def agency_info():
+   agency_info = {}
+   agency_name = input("agency:")
+
+   agency_info[agency_name] = {}
+   From = input("From: ")
+   To = input("To: ")
+   prize = str(input("Price: "))
+   drive_time = input("day or night?: ")
+
+   agency_info[agency_name]['source'] = From
+   agency_info[agency_name]['dest'] = To
+   agency_info[agency_name]['prize'] = prize
+   agency_info[agency_name]['travel_time'] = drive_time
+   return agency_info
+agency_info= agency_info()
+
+
+def from_town():
+    """"""
+    source = input('Enter current location:')
+    if source not in sources:
+        source = input("This location does not exists. Renter current location please: ")
+    return source
+
+
+source = from_town()
+
+
+def destination():
+    """"""
+    destination = input('Enter destination:')
+    if destination not in destinations:
+        destination = input("This destination does not exists. Reenter destination please: ")
+    return destination
+
+
+destination = destination()
+
+
+def travel_time():
+    """"""
+    travel_time = input('Day or Night?:')
+    if travel_time not in travel_times:
+        travel_time = input("Reenter travel time please: ")
+    return travel_time.lower()
+
+
+travel_time = travel_time()
+
+
+def agency_name():
+    """"""
+    agency = input('Enter agency:')
+    if agency not in agencies:
+        agency = input("Reenter agency please: ")
+    return agency
+
+
+agency = agency_name()
+
+
+def passenger_name():
+    """"""
+    first_name = input('First name: ')
+    last_name = input("Last name: ")
+    full_name = first_name + " " + last_name
+    return full_name
+
+
+passenger_name = passenger_name()
+
+
+if agency == 'buca' and destination == 'yde' and travel_time == 'day' and source == 'dla':
+    price = agency_info['buca']['prize']
+    print('Here is your receipt:\n')
+    print("Name:" + passenger_name + ".\n\t")
+    print("Fare:" + str(price) + ".\n\t")
+
+if agency == 'moghamo' and destination == 'yde' and travel_time == 'night' and source == 'dla':
+    price = agency_info['moghamo']['prize']
+    print('Here is your receipt:\n')
+    print("Name:" + passenger_name + ".\n\t")
+    print("Fare:" + str(price) + ".\n\t")
+
+
+
+
+
